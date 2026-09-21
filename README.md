@@ -1,4 +1,4 @@
-# Lab-2-Cupcake-Collector
+# Lab 2: Cupcake Collector
 
 A simple platformer game created with Python and Pygame for my A.I. for Game Programming class.
 
