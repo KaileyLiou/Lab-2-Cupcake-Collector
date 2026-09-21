@@ -2,12 +2,12 @@ import pygame
 import sys
 import asyncio
 
-pygame.init()
-screen = pygame.display.set_mode((1200, 800))
-pygame.display.set_caption("Lab 2: Cupcake Collector")
-clock = pygame.time.Clock()
-
 async def main():
+    pygame.init()
+    screen = pygame.display.set_mode((1200, 800))
+    pygame.display.set_caption("Lab 2: Cupcake Collector")
+    clock = pygame.time.Clock()
+
     score = 0
     font = pygame.font.Font(None, 40)
 
@@ -35,7 +35,7 @@ async def main():
         pygame.Rect(750, 300, 130, 30),
         pygame.Rect(400, 230, 150, 30),
         pygame.Rect(150, 150, 160, 30),
-        pygame.Rect(550, 110, 200, 30), # top
+        pygame.Rect(550, 90, 200, 30), # top
     ]
 
     cupcake_image = pygame.image.load("assets/cupcake.png").convert_alpha()
@@ -57,7 +57,7 @@ async def main():
     cupcakes2 = [
         pygame.Rect(300, 415, 70, 70),
         pygame.Rect(950, 405, 70, 70),
-        pygame.Rect(620, 45, 70, 70),
+        pygame.Rect(620, 25, 70, 70),
     ]
 
     running = True
