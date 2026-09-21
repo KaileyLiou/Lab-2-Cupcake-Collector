@@ -38,16 +38,22 @@ platforms = [
 cupcake_image = pygame.image.load("assets/cupcake.png").convert_alpha()
 cupcake_image = pygame.transform.scale(cupcake_image, (70, 70))
 
+cupcake2_image = pygame.image.load("assets/cupcake2.png").convert_alpha()
+cupcake2_image = pygame.transform.scale(cupcake2_image, (70, 70))
+
 cupcakes = [
     pygame.Rect(850, 700, 70, 70),
     pygame.Rect(200, 595, 70, 70),
     pygame.Rect(520, 525, 70, 70),
-    pygame.Rect(300, 415, 70, 70),
     pygame.Rect(650, 335, 70, 70),
-    pygame.Rect(950, 405, 70, 70),
     pygame.Rect(790, 235, 70, 70),
     pygame.Rect(450, 165, 70, 70),
     pygame.Rect(190, 85, 70, 70),
+]
+
+cupcakes2 = [
+    pygame.Rect(300, 415, 70, 70),
+    pygame.Rect(950, 405, 70, 70),
     pygame.Rect(620, 45, 70, 70),
 ]
 
@@ -98,6 +104,11 @@ while running:
             cupcakes.remove(cupcake)
             score += 1
 
+    for cupcake in cupcakes2[:]:
+        if player_rect.colliderect(cupcake):
+            cupcakes2.remove(cupcake)
+            score += 2
+
     screen.fill((255, 249, 166))
 
     for platform in platforms:
@@ -105,6 +116,9 @@ while running:
 
     for cupcake in cupcakes:
         screen.blit(cupcake_image, (cupcake.x, cupcake.y))
+
+    for cupcake in cupcakes2:
+        screen.blit(cupcake2_image, (cupcake.x, cupcake.y))
 
     screen.blit(player_image, (player_x, player_y))
 
