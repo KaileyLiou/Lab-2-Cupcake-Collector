@@ -50,9 +50,10 @@ while running:
 
     if keys[pygame.K_LEFT]:
         player_x -= 5
-
     if keys[pygame.K_RIGHT]:
         player_x += 5
+
+    player_x = max(0, min(player_x, 1200 - player_width))
 
     if keys[pygame.K_UP] and on_ground:
         player_dy = jump_speed
@@ -67,14 +68,17 @@ while running:
 
     for platform in platforms:
         if player_rect.colliderect(platform):
-            if player_dy > 0 and player_rect.bottom - player_dy <= platform.top:
-                player_rect.bottom = platform.top
-                player_y = player_rect.y
+            if player_dy >= 0 and player_rect.top < platform.top:
+                # falling onto the platform from above
+                player_y = platform.top - player_height
                 player_dy = 0
                 on_ground = True
+            elif player_dy < 0 and player_rect.bottom > platform.bottom:
+                # bumping from below
+                player_y = platform.bottom
+                player_dy = 0
 
-    # keep player inside screen
-    player_x = max(0, min(player_x, 1200 - player_width))
+            player_rect = pygame.Rect(player_x, player_y, player_width, player_height)
 
     # cupcake collision detection
     for cupcake in cupcakes[:]:
