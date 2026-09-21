@@ -11,7 +11,7 @@ font = pygame.font.Font(None, 40)
 player_image = pygame.image.load("assets/player.png").convert_alpha()
 player_image = pygame.transform.scale(player_image, (120, 120))
 
-player_x = 50
+player_x = 20
 player_y = 640
 player_dy = 0
 
@@ -24,19 +24,31 @@ on_ground = True
 
 platforms = [
     pygame.Rect(0, 765, 1200, 35), # ground
-    pygame.Rect(100, 680, 200, 35),
-    pygame.Rect(700, 540, 250, 35),
-    pygame.Rect(350, 360, 200, 35),
-    pygame.Rect(850, 250, 250, 35)
+    pygame.Rect(150, 660, 180, 30),
+    pygame.Rect(480, 590, 150, 30),
+    pygame.Rect(250, 480, 160, 30),
+    pygame.Rect(600, 400, 140, 30),
+    pygame.Rect(900, 470, 170, 30),
+    pygame.Rect(750, 300, 130, 30),
+    pygame.Rect(400, 230, 150, 30),
+    pygame.Rect(150, 150, 160, 30),
+    pygame.Rect(550, 110, 200, 30),
 ]
 
 cupcake_image = pygame.image.load("assets/cupcake.png").convert_alpha()
 cupcake_image = pygame.transform.scale(cupcake_image, (70, 70))
 
 cupcakes = [
-    pygame.Rect(150, 230, 70, 70),
-    pygame.Rect(400, 180, 70, 70),
-    pygame.Rect(520, 310, 70, 70)
+    pygame.Rect(850, 700, 70, 70),
+    pygame.Rect(200, 595, 70, 70),
+    pygame.Rect(520, 525, 70, 70),
+    pygame.Rect(300, 415, 70, 70),
+    pygame.Rect(650, 335, 70, 70),
+    pygame.Rect(950, 405, 70, 70),
+    pygame.Rect(790, 235, 70, 70),
+    pygame.Rect(450, 165, 70, 70),
+    pygame.Rect(190, 85, 70, 70),
+    pygame.Rect(620, 45, 70, 70),
 ]
 
 running = True
@@ -96,8 +108,8 @@ while running:
 
     screen.blit(player_image, (player_x, player_y))
 
-    score_text = font.render(f"Score: {score}", True, (0, 0, 0))
-    screen.blit(score_text, (10, 10))
+    score_text = font.render(f"Score: {score}", True, (184, 37, 110))
+    screen.blit(score_text, (30, 30)) 
 
     pygame.display.flip()
     clock.tick(60)
